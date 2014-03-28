@@ -63,7 +63,7 @@ Route::filter('inGroup', function($route, $request, $value)
 		Session::flash('error', trans('users.notfound'));
 		return Redirect::route('login');
 	}
-	 
+
 	catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e)
 	{
 		Session::flash('error', trans('groups.notfound'));
@@ -85,7 +85,7 @@ Route::filter('inGroup', function($route, $request, $value)
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Sentry::check()) return Redirect::to('/');
 });
 
 /*

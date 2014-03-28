@@ -80,14 +80,14 @@ class UserControllerTest extends TestCase {
     {
         $this->beUser();
         $this->call('get', URL::action('UserController@create'));
-        $this->assertResponseOk();
+        $this->assertRedirectedToRoute('home');
     }
 
     public function testUserControllerCreateAsAdmin()
     {
         $this->beAdmin();
         $this->call('get', URL::action('UserController@create'));
-        $this->assertResponseOk();
+        $this->assertRedirectedToRoute('home');
     }
 
     /**
